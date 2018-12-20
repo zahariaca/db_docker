@@ -1,3 +1,12 @@
+--
+-- USER ADDED AREA
+--
+CREATE DATABASE IF NOT EXISTS cli_login;
+USE cli_login;
+--
+-- USER ADDED AREA
+-- ---------------------------------------
+
 -- MySQL dump 10.13  Distrib 8.0.13, for Linux (x86_64)
 --
 -- Host: localhost    Database: cli_login
