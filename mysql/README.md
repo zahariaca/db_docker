@@ -41,7 +41,7 @@ E.g (with a dump of only 1 database, sql script doesn't contain `CREATE DB/USE D
 
 ####Executing sql queries
 1. Run:
-    `docker exec -it d70d8ca2ff21 bash`
+    `docker exec -it az-mysql bash`
 2. Run:
     `mysql -uroot -proot`
 3. Business as usual...
@@ -49,25 +49,25 @@ E.g (with a dump of only 1 database, sql script doesn't contain `CREATE DB/USE D
 ####Working with the container
 
 - To stop the container run:
-    `docker stop d70d8ca2ff21`
+    `docker stop az-mysql`
 - To start the container run:
-    `docker start d70d8ca2ff21`
+    `docker start az-mysql`
 - To delete the container run (cautions: you will loose your databases):
-    `docker rm -vf d70d8ca2ff21`
+    `docker rm -vf az-mysql`
 
 
 ##How to dump databases from container
 
 ####Dump all databases:
 1. On your host machine run:
-    `docker exec d70d8ca2ff21 sh -c 'exec mysqldump --all-databases -uroot -proot' > /some/path/on/your/host/all-databases.sql`
+    `docker exec az-mysql sh -c 'exec mysqldump --all-databases -uroot -proot' > /some/path/on/your/host/all-databases.sql`
 
 ####Dump only 1 table:
 1. On your host machine run:
-    `docker exec d70d8ca2ff21 sh -c 'exec mysqldump cli_login -uroot -proot' > /some/path/on/your/host/cli_login.sql`
+    `docker exec az-mysql sh -c 'exec mysqldump cli_login -uroot -proot' > /some/path/on/your/host/cli_login.sql`
 
 
-**NOTE** `d70d8ca2ff21` = your container hash
+**NOTE** `az-mysql` = your container name
 
 
 ##References
