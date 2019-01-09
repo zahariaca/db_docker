@@ -47,8 +47,7 @@ CREATE TABLE `transactions` (
     `supplier_id` int(16) NOT NULL,
     `product_id` int(16) NOT NULL,
     `date` BIGINT(19) UNSIGNED NOT NULL,
-    FOREIGN KEY (`supplier_id`) REFERENCES users (`user_id`),
-    FOREIGN KEY (`product_id`) REFERENCES products (`product_id`)
+    FOREIGN KEY (`supplier_id`) REFERENCES users (`user_id`)
 );
 
 INSERT INTO `transactions` VALUES (2, 1001, 1542664425498);
