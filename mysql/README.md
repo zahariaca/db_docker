@@ -7,7 +7,7 @@
 2. Run:
     `docker build -t zahariaca/az-mysql .`
 3. After image is build, run:
-    `docker run --name az-mysql -d zahariaca/az-mysql`
+    `docker run --name az-mysql -p 7000:3306 -d zahariaca/az-mysql`
 
 
 ##How to alter databases
@@ -43,7 +43,7 @@ E.g (with a dump of only 1 database, sql script doesn't contain `CREATE DB/USE D
 1. Run:
     `docker exec -it az-mysql bash`
 2. Run:
-    `mysql -uroot -proot`
+    `mysql -uroot -proot -P 7000`
 3. Business as usual...
 
 ####Working with the container
