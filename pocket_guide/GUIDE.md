@@ -1,8 +1,11 @@
 ============================================
+
 Connect to MySQL db
 
 `mysql -u$USERNAME -p$PASSWORD`
+
 ============================================
+
 Export users and privileges:
 
 ```
@@ -13,9 +16,11 @@ awk '{print $0";"}'  user_privileges.txt >user_privileges_final.sql
 rm user.txt user_list_with_header.txt user_grant.txt user_privileges.txt
 ```
 ============================================
+
 Create MySQL user with localhost access:
 
 `CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';`
+
 ============================================
 Create MySQL user with wildcard host access:
 
@@ -26,15 +31,21 @@ can also be:
 `CREATE USER 'user'@'%.domain.com' IDENTIFIED BY 'password';`
 
 `CREATE USER 'user'@'%.123.123.123' IDENTIFIED BY 'password';`
+
 ============================================
+
 After updating MySQL version, when encountering issue: `ERROR 3009 (HY000): Column count of mysql.user is wrong. Expected 50, found 49.` run:
 
 `mysql_upgrade --force -uroot -p`
+
 ============================================
+
 Show MySQL server users:
 
 `SELECT User FROM mysql.user;`
+
 ============================================
+
 Grant a user all privileges on a database and table:
 
 ```
@@ -47,19 +58,27 @@ Use `*` instead of $DATABASE, $TABALES to grant to all databases and tables.
 Or:
 
 `GRANT type_of_permission ON database_name.table_name TO ‘username’@'localhost’;`
+
 ============================================
+
 Show columns of a table
 
 `SHOW COLUMNS FROM users;`
+
 ============================================
+
 Change a column type
 
 `ALTER TABLE users MODIFY isSupplier tinyint(1) NOT NULL DEFAULT 0;`
+
 ============================================
+
 Reset autoincremented field
 
 `ALTER TABLE users AUTO_INCREMENT = 1;`
+
 ============================================
+
 1-n relationship with a `users` table. `FOREIGN KEY` usefull
 
 ```
@@ -73,14 +92,19 @@ CREATE TABLE `products` (
   FOREIGN KEY (`supplierID`) REFERENCES users (`user_id`)
 );
 ```
+
 ============================================
+
 Will show product name and username when there is a matching supplier_id_ and user_id in both tables
 
 `SELECT products.name, users.username FROM products INNER JOIN users ON products.supplier_id_ = users.user_id;`
+
 ============================================
+
 Convert java long date to actual date and time:
 
 `SELECT FROM_UNIXTIME(1542664425498/1000);`
+
 ============================================
 
 
